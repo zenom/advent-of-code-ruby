@@ -2,7 +2,8 @@
 
 crates = File.read('input.txt').split("\n")
 
-# could clean this up a bit
+# feels dirty, duplicating some of this code
+# would be better to reduce some of the duplication
 def crates_close?(crate_one, crate_two)
   differences = 0
   crate_one.each_char.with_index do |char, loc|
@@ -14,7 +15,7 @@ end
 def common_letters(crate_one, crate_two)
   matches = ''
   crate_one.each_char.with_index do |char, loc|
-     matches += char if char == crate_two.chars[loc]
+    matches += char if char == crate_two.chars[loc]
   end
   matches
 end
